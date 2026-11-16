@@ -64,4 +64,4 @@ describe('CreateUserUseCase', () => {
 
     await expect(createUserUseCase.execute(request)).rejects.toThrow('Email inválido');
   });
-}); 
+});
