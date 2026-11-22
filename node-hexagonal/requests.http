@@ -6,13 +6,22 @@
 ####################
 
 ### Health Check - Verificar se o servidor está rodando
+
 GET http://localhost:3000/health
 
 ####################
 # CRIAR USUÁRIOS
 ####################
 
+@baseUrl = https://api.github.com
+
+### Get Repository Info
+
+GET {{baseUrl}}/repos/doani/zed-restclient
+Accept: application/json
+
 ### Criar usuário válido 1
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -22,6 +31,7 @@ Content-Type: application/json
 }
 
 ### Criar usuário válido 2
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -31,6 +41,7 @@ Content-Type: application/json
 }
 
 ### Criar usuário válido 3
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -44,6 +55,7 @@ Content-Type: application/json
 ####################
 
 ### Listar todos os usuários
+
 GET http://localhost:3000/api/users
 
 ####################
@@ -52,9 +64,11 @@ GET http://localhost:3000/api/users
 
 ### Buscar usuário por ID específico
 # NOTA: Substitua {id} pelo ID retornado na criação do usuário
+
 GET http://localhost:3000/api/users/{id}
 
 ### Buscar usuário que não existe
+
 GET http://localhost:3000/api/users/inexistente
 
 ####################
@@ -62,6 +76,7 @@ GET http://localhost:3000/api/users/inexistente
 ####################
 
 ### Tentar criar usuário sem nome
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -70,6 +85,7 @@ Content-Type: application/json
 }
 
 ### Tentar criar usuário sem email
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -78,6 +94,7 @@ Content-Type: application/json
 }
 
 ### Tentar criar usuário com nome vazio
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -87,6 +104,7 @@ Content-Type: application/json
 }
 
 ### Tentar criar usuário com email inválido
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -96,6 +114,7 @@ Content-Type: application/json
 }
 
 ### Tentar criar usuário com email duplicado
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -109,6 +128,7 @@ Content-Type: application/json
 ####################
 
 ### Criar usuário com email em maiúsculo (deve normalizar)
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -118,6 +138,7 @@ Content-Type: application/json
 }
 
 ### Criar usuário com nome com espaços extras (deve normalizar)
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -127,6 +148,7 @@ Content-Type: application/json
 }
 
 ### Tentar criar usuário com campos vazios
+
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
@@ -134,5 +156,3 @@ Content-Type: application/json
   "name": "   ",
   "email": "   "
 }
-
- 
